@@ -45,9 +45,9 @@ except: pass
 
 iteration = 1
 
-while os.path.exists(path + f"instance{str(iteration).zfill(2)}.txt"):
+while os.path.exists(path + f"/instance{str(iteration).zfill(2)}.txt"):
     # m is the number of sets in the file, number k for the algorithm
-    m, k, collection = parseFile(path + f"instance{str(iteration).zfill(2)}.txt")
+    m, k, collection = parseFile(path + f"/instance{str(iteration).zfill(2)}.txt")
     writeFile("solutions/" + f"solution{str(iteration).zfill(2)}.txt", maximumCoverage(collection, k, m))
     print(collection)
     iteration += 1

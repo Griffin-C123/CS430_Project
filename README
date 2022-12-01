@@ -1,5 +1,5 @@
 Instructions on use:
 1. run the command "python MaximumCoverage.py"
 2. you will be asked for the path to the instance file i.e.("instance01.txt")
-   enter the full file path like, ('/home/griffin/Documents/' on linux or 'C:\\Directory\\Directory' for windows)
+   enter the full file path like, ('/home/griffin/Documents' on linux or 'C:/Directory/Directory' for windows)
 3. after entering the file path the program will run and output solutions to the solutions directory
