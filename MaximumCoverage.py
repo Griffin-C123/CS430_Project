@@ -40,7 +40,6 @@ def maximumCoverageGreedy(collection, k, m):
     elementsDiscovered = set()
     output = set()
     for i in range(k):
-        print(type(output))
         bigSet, index = nextSet(collection, m, elementsDiscovered)
         index = "S" + str(index)
         elementsDiscovered = elementsDiscovered.union(bigSet)
@@ -59,11 +58,16 @@ def writeFile(name, content):
 path = input("Enter the path to instance.txt files (more info in README)\n")
 try: os.mkdir("solutions")
 except: pass
+run = False
 
 iteration = 1
 while os.path.exists(path + f"/instance{str(iteration).zfill(2)}.txt"):
     # m is the number of sets in the file, number k for the algorithm
     m, k, collection = parseFile(path + f"/instance{str(iteration).zfill(2)}.txt")
     writeFile("solutions/" + f"solution{str(iteration).zfill(2)}.txt", maximumCoverageGreedy(collection, k, m))
-    print(collection)
     iteration += 1
+    run = True
+if run == False:
+    print("Please enter Valid Directory")
+else:
+    print("Solutions in solutions Directory")
