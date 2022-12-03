@@ -25,12 +25,14 @@ def parseFile(name):
 def nextSet(collection, m, elementsDiscovered):
     # helper function of maximumCoverageGreedy that that finds the next largest set
     largest = set()
+    setNum = 0
     for i in range(1, m+1):
         collection[i].difference_update(elementsDiscovered)
     for i in range(1, m+1):
         if len(collection[i]) > len(largest):
             largest = collection[i]
-    return largest
+            index = i
+    return largest, index
 
 
 def maximumCoverageGreedy(collection, k, m):
@@ -38,9 +40,11 @@ def maximumCoverageGreedy(collection, k, m):
     elementsDiscovered = set()
     output = set()
     for i in range(k):
-        bigSet = nextSet(collection, m, elementsDiscovered)
+        print(type(output))
+        bigSet, index = nextSet(collection, m, elementsDiscovered)
+        index = "S" + str(index)
         elementsDiscovered = elementsDiscovered.union(bigSet)
-        output = output.union(bigSet)
+        output.add(index)
 
     return f"min({k}, {m}): {output}"
 
