@@ -39,13 +39,14 @@ def maximumCoverageGreedy(collection, k, m):
     # algorithm - Uses a greedy method to find the largest set made by a collection of sets
     elementsDiscovered = set()
     output = set()
+    prnt = ""
     for i in range(k):
         bigSet, index = nextSet(collection, m, elementsDiscovered)
-        index = "S" + str(index)
         elementsDiscovered = elementsDiscovered.union(bigSet)
         output.add(index)
-
-    return f"min({k}, {m}): {output}"
+    for i in output:
+        prnt = prnt + str(i) + " "
+    return f"{prnt}"
 
 
 def writeFile(name, content):
